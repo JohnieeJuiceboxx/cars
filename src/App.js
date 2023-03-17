@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.scss";
+import Cars from "./components/Cars";
+import LeftSideBar from "./components/LeftSideBar";
+import AddCars from "./components/AddCars";
+import { Route, Routes } from "react-router-dom";
+import Splash from "./components/Splash";
 
 function App() {
+  const [mode, setMode] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {mode === "splash" || mode === "" ? (
+        <Splash setMode={setMode} />
+      ) : (
+        <div className="dashboard_container">
+          <LeftSideBar setMode={setMode} mode={mode} />
+          <Routes>
+            <Route path="/" element={<Splash />} />
+            <Route
+              path="/cars"
+              element={<Cars setMode={setMode} mode={mode} />}
+            />
+            <Route
+              path="/add"
+              element={<AddCars setMode={setMode} mode={mode} />}
+            />
+          </Routes>
+        </div>
+      )}
     </div>
   );
 }
