@@ -178,7 +178,7 @@ img {
 .car_item {
   margin: 10px;
 }
-.css-o4b71y-MuiAccordionSummary-content {
+.MuiAccordionSummary-contentGutters {
   justify-content: space-around;
 } 
 
@@ -220,11 +220,19 @@ min-height: 100vh;
 }
 
 
+@media (max-width:600px){
+  .MuiAccordionSummary-content {
+    flex-direction: column !important;
+  }
+  #panel1bh-header > div.MuiAccordionSummary-content > p.MuiTypography-root.MuiTypography-body1 {
+    width: initial !important;
+text-align: center !important;
+  }
+}
 
 
 @media (min-width:320px)  { 
-  /* smartphones, Android phones, landscape iPhone */ 
-.left_sidebar_wrapper {
+ .left_sidebar_wrapper {
   width: 30vw;
   height: initial;
   min-height: 100vh;
@@ -238,4 +246,6 @@ min-height: 100vh;
 body {
   overflow: initial;
 }
+ 
 }
+

@@ -4,16 +4,20 @@ import "./App.scss";
 import Cars from "./components/Cars";
 import LeftSideBar from "./components/LeftSideBar";
 import AddCars from "./components/AddCars";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Splash from "./components/Splash";
 
 function App() {
   const [mode, setMode] = useState("");
 
+  const navigate = useNavigate();
+
   return (
     <div className="App">
       {mode === "splash" || mode === "" ? (
-        <Splash setMode={setMode} />
+        <>
+          <Splash setMode={setMode} />
+        </>
       ) : (
         <div className="dashboard_container">
           <LeftSideBar setMode={setMode} mode={mode} />

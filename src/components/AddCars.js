@@ -56,7 +56,7 @@ export default function AddCars({ setMode }) {
     }
     if (error) console.error("missing required fields");
     else {
-      fetch("/cars", {
+      fetch("/api/cars", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

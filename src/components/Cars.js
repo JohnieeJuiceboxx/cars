@@ -11,7 +11,7 @@ export default function Cars({ setMode }) {
 
   useEffect(() => {
     setMode("cars");
-    fetch("/cars")
+    fetch("/api/cars")
       .then((res) => {
         if (res.ok) {
           return res.json();
